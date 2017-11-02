@@ -30,7 +30,7 @@ def get_Abstract(paperId):
 
 
 
-data=pd.read_csv('Dataset/lung.csv',index_col=0)
+data=pd.read_csv('Dataset/mycardial_infraction.csv',index_col=0)
 
 PubMed_nr=data['Pubmed_ID']
 
@@ -46,7 +46,7 @@ for k in PubMed_nr:
 
 data['abstract']=abstracts
 
-data.to_csv('lungs_abstract.csv',index=False)
+data.to_csv('mycardial_abstract.csv',index=False)
 
 #print(abstracts)
 
