@@ -18,41 +18,23 @@ from pprint import pprint
 from math import log10
 from imp import reload
 import pandas as pd
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+
+
 try:
     from nltk import wordpunct_tokenize
     from nltk.corpus import stopwords
     import nltk
 except ImportError:
-    sys.stderr.write(pimpString('Error! You need to install nltk (http://nltk.org/index.html)'))
+    sys.stderr.write('Error! You need to install nltk (http://nltk.org/index.html)')
 # my library
 import textTools
 
 def signal_handler(signal, frame):
     sys.stderr.write(pimpString('You pressed Ctrl+C!','red'))
     sys.exit(0)
-    
-def pimpString(string, color='', bold=''):
-    attr = []
-    if not sys.stdout.isatty():
-      return string
-    if color == 'green' or color == 'done' or 'done' in string.lower():
-        # green
-        attr.append('32')
-    elif color == 'red' or color == 'error' or 'error' in string.lower():
-        # red
-        attr.append('31')
-    elif color == 'orange' or color == 'warning' or 'warning' in string.lower():
-      # orange
-      attr.append('33')
-    elif color == 'blue' or color == 'alt_done':
-      # blue
-      attr.append('36')
-    else:
-      # default color white
-      attr.append('37')
-    if bold:
-        attr.append('1')
-    return '\x1b[%sm%s\x1b[0m' % (';'.join(attr), string)
+
 
 def is_uppercase(astr):
     return (len(set(string.ascii_uppercase).intersection(astr.strip()))+len(set(string.digits).intersection(astr.strip()))) == len(astr.strip())
@@ -60,29 +42,14 @@ def is_uppercase(astr):
   Class that represent a patient folder with an ID and splitted 
   and cleaned in 3 parts: patient , clinical , pathological
 """
+def DocsToFMatrix(docs):
+    # initialize the  vectorizer
+    vectorizer = CountVectorizer(min_df=20)
+    x1 = vectorizer.fit_transform(docs)
+    # create dataFrame
+    df = pd.DataFrame(x1.toarray().transpose(), index=vectorizer.get_feature_names())
+    return df
 
-def csv_to_TextFile():
-      Data_csv=pd.read_csv('Datasets/all_cancer3.csv',encoding='latin1')
-      j=0
-      with open("Datasets/Cancer3_10000.txt",'w') as f:
-        for i in (Data_csv['text']):
-            
-            f.write(i)
-            j=j+1
-            if j==10000:
-                break
-        f.close()
-        
-        
-def writeFile(Text):
-    try:
-        with open('Datasets/Cancer_clean.txt', 'w',encoding='utf-8') as content_file:
-            content_file.write(Text)
-            content_file.close()
-                
-    except IOError:
-        print("Cannot find file",filename)
-    
 class Folder:
   
   
@@ -271,15 +238,8 @@ class Folder:
   
   
 def main(argv):
-    
-    csv_to_TextFile()
-    
-    signal.signal(signal.SIGINT, signal_handler)
-    #reload(sys)
-  #sys.setdefaultencoding("latin-1")
-    folders=[]
-    csv_Data=[]
-    
+
+    clean_abstract=np.array([])
     black_list=['show',
 	      'year',
 	      'many',
@@ -300,19 +260,35 @@ def main(argv):
     if len(argv)>1:
         filename=argv[1]
     else:
-        filename="Datasets/Cancer3_10000.txt"
+        filename="Dataset/All_Disease.csv"
     
     try:
-        with open(filename, 'r',encoding='utf-8') as content_file:
-            content = content_file.read()
-           
-    #print "#Characters:",len(content)
-            
-            
-            current=Folder(content,black_list)
-            current.process()
-            writeFile(current.clean_text)
-            
+        Disease_Data=pd.read_csv(filename)
+        abstracts=Disease_Data['abstract']
+        abstracts=np.array(abstracts)
+        i=0
+        for content in abstracts:
+
+            content=str(content)
+            if(not content.strip()):
+                clean_abstract = np.append(clean_abstract, "")
+            else:
+                #print(i, content)
+                current = Folder(content, black_list)
+                current.process()
+
+                clean_abstract = np.append(clean_abstract, current.clean_text)
+
+            i=i+1
+        # writeFile(current.clean_text)
+        Disease_Data['clean_abstract']=clean_abstract
+        Disease_Data.to_csv('Dataset/clean_disease.csv',index=False)
+        Tm=DocsToFMatrix(clean_abstract)
+        Tm=Tm.transpose()
+
+        Tm['Class']=Disease_Data['Class']
+        print(Tm)
+        Tm.to_csv('Disease_Data.csv',index=False)
     except IOError:
         print("Cannot find file",filename)
 
