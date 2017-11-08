@@ -10,10 +10,10 @@ from sklearn.metrics import accuracy_score
 ## Data import and seperate
 
 def import_Data():
-    Data=pd.read_csv('Disease_Data.csv')
+    Data=pd.read_csv('Disease_Data1.csv')
     print(Data.shape)
 
-    X=Data.iloc[:,0:1141]
+    X=Data.iloc[:,0:1140]
 
 
     Y=Data['Class']
@@ -24,12 +24,12 @@ def import_Data():
 ## spliting into test and training data
 
 def split_class_Data(Data,Y):
-    Data['Class']=Y
+    #Data['Class']=Y
     sub_class={}
     super_classes=list(set(Y))
     for cls in super_classes:
         #print(cls)
-        sub=Data[Data['Class']==cls]
+        sub=Data[Y==cls]
         sub_class[cls]=sub
     return sub_class
 
@@ -44,10 +44,7 @@ def split_Data(X,Y):
 
 
 def apply_Model(X_train,y_train):
-    X_train=X_train.iloc[:,0:1140]
-    y_train=pd.DataFrame(y_train)
-    print(type(y_train))
-
+    X_train=X_train.iloc[:,0:1139]
 
     clf = svm.SVC(kernel='linear', C=1).fit(X_train, y_train)
 
@@ -57,7 +54,7 @@ def apply_sub_Model(sub_class,Y):
     sub_Models={}
     for cls in list(set(Y)):
         Data=sub_class[cls]
-        X_train=Data.iloc[:,0:1141]
+        X_train=Data.iloc[:,0:1140]
         y_train=Data['Subject']
         model=apply_Model(X_train,y_train)
         sub_Models[cls]=model
@@ -65,8 +62,8 @@ def apply_sub_Model(sub_class,Y):
 
 
 def model_Predict(clf,X_test):
-
-    y_pred=clf.predict(X_test.iloc[:,0:1140])
+    #X_test=X_test.iloc[:,0:1139]
+    y_pred=clf.predict(X_test)
     #acc = accuracy_score(y_test, y_pred)
     return y_pred
 
@@ -74,16 +71,24 @@ def super_Predict(X,Y):
     X_train, X_test, y_train, y_test = split_Data(X, Y)
 
     model = apply_Model(X_train, y_train)
-    y_pred = model_Predict(model, X_test)
+    y_pred = model_Predict(model, X_test.iloc[:,0:1139])
     acc = accuracy_score(y_test, y_pred)
+    print(acc)
     return y_pred,X_train,X_test,y_train,y_test
 
 def sub_predict(y_pred, X_train, X_test, y_train, y_test,Y):
     y_sub_pred=np.array([])
-    sub_class = split_class_Data(X_train,Y)
-    #print(sub_class)
+    sub_class = split_class_Data(X_train,y_train)
     sub_Models=apply_sub_Model(sub_class,Y)
-    #print(sub_Models)
+
+    i=0
+    for index,case in X_test.iterrows():
+        superCls=y_pred[i]
+        case=pd.DataFrame(case).iloc[0:1139]
+        sub_label=model_Predict(sub_Models[superCls],case.transpose())
+        y_sub_pred=np.append(y_sub_pred,sub_label)
+        i=i+1
+    print(accuracy_score(X_test['Subject'], y_sub_pred))
 
 
 
