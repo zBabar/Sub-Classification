@@ -44,7 +44,7 @@ def is_uppercase(astr):
 """
 def DocsToFMatrix(docs):
     # initialize the  vectorizer
-    vectorizer = CountVectorizer(min_df=20)
+    vectorizer = CountVectorizer(min_df=15)
     x1 = vectorizer.fit_transform(docs)
     # create dataFrame
     df = pd.DataFrame(x1.toarray().transpose(), index=vectorizer.get_feature_names())
@@ -106,7 +106,7 @@ class Folder:
           continue
       
       #print("Lets Check",l)
-      l=self.removeCommon(l)
+      #l=self.removeCommon(l)
       
       
       #print("Lets Check again",l)
@@ -260,7 +260,7 @@ def main(argv):
     if len(argv)>1:
         filename=argv[1]
     else:
-        filename="Dataset/All_Disease.csv"
+        filename="Dataset/All_Diseases.csv"
     
     try:
         Disease_Data=pd.read_csv(filename)
@@ -282,15 +282,19 @@ def main(argv):
             i=i+1
         # writeFile(current.clean_text)
         Disease_Data['clean_abstract']=clean_abstract
-        Disease_Data.to_csv('Dataset/clean_disease.csv',index=False)
-        Tm=DocsToFMatrix(clean_abstract)
-        Tm=Tm.transpose()
-
-        Tm['Class']=Disease_Data['Class']
-        print(Tm)
-        Tm.to_csv('Disease_Data.csv',index=False)
+        Disease_Data.to_csv('Dataset/clean_disease.csv',encoding='utf-8',index=False)
+        # Tm=DocsToFMatrix(clean_abstract)
+        # Tm=Tm.transpose()
+        #
+        # Tm['Class']=Disease_Data['Class']
+        # print(Tm)
+        # Tm.to_csv('Disease_Data.csv',index=False)
     except IOError:
         print("Cannot find file",filename)
+    # content='Epidemiologic studies of acute myocardial infarction(AMI) have described gender differences in the time of death after infarction, with greater numbers of men dying before hospitalization than women.However, in controlled, hospital-based clinical trials, women die at higher rates than men.We hypothesized that evidence of a gender difference in the time of death following AMI may be found in controlled studies of hospitalized AMI patients.We performed a retrospective analysis of the Global Utilization of Streptokinase and Tissue Plasminogen Activator for Occluded Coronary Arteries (GUSTO-1) and International Joint Efficacy Comparison of Thrombolytics (INJECT) trial databases using logistic regression modeling and time-to-death analyses.The age-adjusted female-to-male odds ratio for mortality was 1.4 (95 % confidence interval 1.3 to 1.5) in GUSTO-1 and 1.5 (95 % confidence interval 1.3 to 1.8) in INJECT.GUSTO-1 showed that among patients dying during the first 24 hours after symptom onset, men died an average of 1.7 hours earlier than women (p < 0.001).This difference was due to earlier deaths among men < or =65 years of age.Furthermore, in GUSTO-1, the analysis of time to death in hour increments demonstrated that greater proportions of men died at earlier time points than women and a disproportionate number of early deaths occurred among younger men than among women of any age or older men.In INJECT, where time to death could only be analyzed in 1-day increments, no gender differences were evident.These results raise the possibility that the pattern of earlier death for men in thrombolytic clinical trials represents the continuation of a gender-specific mortality pattern that began before hospitalization.The death of a disproportionate number of men before hospitalization may represent an inherent gender bias for clinical studies enrolling only hospitalized patients.More high-risk men would be excluded from these studies than women because of death before hospitalization.Hence, gender comparisons of in -hospital mortality rates may artificially inflate values for women.'
+    # current = Folder(content, [])
+    # current.process()
+    # print(current.clean_text)
 
 
 if __name__ == '__main__':

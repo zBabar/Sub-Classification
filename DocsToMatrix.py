@@ -35,13 +35,14 @@ def DocsToFMatrix(docs):
 
 def main(argv):
 
-    clean_Disease=pd.read_csv('Dataset/clean_disease.csv')
+    clean_Disease=pd.read_csv('Dataset/clean_disease_filt.csv')
     Tm = DocsToFMatrix(clean_Disease['clean_abstract'])
     Tm = Tm.transpose()
-
+    Tm['Subject'] = clean_Disease['Subject']
     Tm['Class'] = clean_Disease['Class']
+
     print(Tm)
-    Tm.to_csv('Disease_Data1.csv', index=False)
+    Tm.to_csv('Disease_Data.csv', index=False)
 
 
 if __name__ == '__main__':
