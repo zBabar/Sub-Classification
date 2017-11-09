@@ -23,7 +23,7 @@ def import_Data():
 
 ## spliting into test and training data
 
-def split_class_Data(X,Y):
+def split_class_Data(X,Y): # spliting the data on the bases of classes and storing in a dictionary
     #Data['Class']=Y
     sub_class={}
     super_classes=list(set(Y))
@@ -50,7 +50,7 @@ def apply_Model(X_train,y_train):
 
     return clf
 
-def apply_sub_Model(sub_class,Y):
+def apply_sub_Model(sub_class,Y): # training models for data per each class and storing in a dictionary
     sub_Models={}
     for cls in list(set(Y)):
         X=sub_class[cls]
@@ -67,7 +67,7 @@ def model_Predict(clf,X_test):
     #acc = accuracy_score(y_test, y_pred)
     return y_pred
 
-def super_Predict(X,Y):
+def super_Predict(X,Y): # predicting super class for given test dataset
     X_train, X_test, y_train, y_test = split_Data(X, Y)
 
     model = apply_Model(X_train.iloc[:,0:1139], y_train)
@@ -76,7 +76,7 @@ def super_Predict(X,Y):
     print("Super Class Prediction Accuracy:", acc)
     return y_pred,X_train,X_test,y_train,y_test
 
-def sub_predict(y_pred, X_train, X_test, y_train, y_test,Y):
+def sub_predict(y_pred, X_train, X_test, y_train, y_test,Y): # predicting sub class (Subject) for given test data set
     y_sub_pred=np.array([])
     sub_class = split_class_Data(X_train,y_train)
     sub_Models=apply_sub_Model(sub_class,y_train)
