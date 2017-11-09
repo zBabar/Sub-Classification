@@ -11,25 +11,25 @@ from sklearn.metrics import accuracy_score
 
 def import_Data():
     Data=pd.read_csv('Disease_Data1.csv')
-    print(Data.shape)
+    #print(Data.shape)
 
     X=Data.iloc[:,0:1140]
 
 
     Y=Data['Class']
-    Y_=Data['Subject']
+    #Y_=Data['Subject']
 
-    return X,Y,Data
+    return X,Y
 
 ## spliting into test and training data
 
-def split_class_Data(Data,Y):
+def split_class_Data(X,Y):
     #Data['Class']=Y
     sub_class={}
     super_classes=list(set(Y))
     for cls in super_classes:
         #print(cls)
-        sub=Data[Y==cls]
+        sub=X[Y==cls]
         sub_class[cls]=sub
     return sub_class
 
@@ -44,7 +44,7 @@ def split_Data(X,Y):
 
 
 def apply_Model(X_train,y_train):
-    X_train=X_train.iloc[:,0:1139]
+    #X_train=X_train.iloc[:,0:1139]
 
     clf = svm.SVC(kernel='linear', C=1).fit(X_train, y_train)
 
@@ -53,9 +53,9 @@ def apply_Model(X_train,y_train):
 def apply_sub_Model(sub_class,Y):
     sub_Models={}
     for cls in list(set(Y)):
-        Data=sub_class[cls]
-        X_train=Data.iloc[:,0:1140]
-        y_train=Data['Subject']
+        X=sub_class[cls]
+        X_train=X.iloc[:,0:1139]
+        y_train=X['Subject']
         model=apply_Model(X_train,y_train)
         sub_Models[cls]=model
     return sub_Models
@@ -70,16 +70,16 @@ def model_Predict(clf,X_test):
 def super_Predict(X,Y):
     X_train, X_test, y_train, y_test = split_Data(X, Y)
 
-    model = apply_Model(X_train, y_train)
+    model = apply_Model(X_train.iloc[:,0:1139], y_train)
     y_pred = model_Predict(model, X_test.iloc[:,0:1139])
     acc = accuracy_score(y_test, y_pred)
-    print(acc)
+    print("Super Class Prediction Accuracy:", acc)
     return y_pred,X_train,X_test,y_train,y_test
 
 def sub_predict(y_pred, X_train, X_test, y_train, y_test,Y):
     y_sub_pred=np.array([])
     sub_class = split_class_Data(X_train,y_train)
-    sub_Models=apply_sub_Model(sub_class,Y)
+    sub_Models=apply_sub_Model(sub_class,y_train)
 
     i=0
     for index,case in X_test.iterrows():
@@ -88,16 +88,16 @@ def sub_predict(y_pred, X_train, X_test, y_train, y_test,Y):
         sub_label=model_Predict(sub_Models[superCls],case.transpose())
         y_sub_pred=np.append(y_sub_pred,sub_label)
         i=i+1
-    print(accuracy_score(X_test['Subject'], y_sub_pred))
+    acc=accuracy_score(X_test['Subject'], y_sub_pred)
+    print("Sub Class Prediction Accuracy:", acc)
 
 
 
 def main():
     #super class processing and prediction
-    X,Y,Data=import_Data()
+    X,Y=import_Data()
     y_pred, X_train, X_test, y_train, y_test=super_Predict(X,Y)
 
-    #print(X_train)
 
     # sub class prediction
     sub_predict(y_pred, X_train, X_test, y_train, y_test,Y)
