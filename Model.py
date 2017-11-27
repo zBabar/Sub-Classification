@@ -5,6 +5,11 @@ import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn import svm
 from sklearn.metrics import accuracy_score
+from sklearn import linear_model
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import MultinomialNB
+
+
 
 
 ## Data import and seperate
@@ -17,9 +22,9 @@ def import_Data():
 
 
     Y=Data['Class']
-    #Y_=Data['Subject']
+    Y_=Data['Subject']
 
-    return X,Y
+    return X,Y,Y_
 
 ## spliting into test and training data
 
@@ -46,7 +51,14 @@ def split_Data(X,Y):
 def apply_Model(X_train,y_train):
     #X_train=X_train.iloc[:,0:1139]
 
-    clf = svm.SVC(kernel='linear', C=1).fit(X_train, y_train)
+    #clf = svm.SVC(kernel='linear', C=1).fit(X_train, y_train)
+
+    clf=linear_model.LogisticRegression(C=1e5).fit(X_train, y_train)
+
+    print(clf.coef_.shape)
+    #clf = MultinomialNB().fit(X_train, y_train)
+
+
 
     return clf
 
@@ -95,8 +107,10 @@ def sub_predict(y_pred, X_train, X_test, y_train, y_test,Y): # predicting sub cl
 
 def main():
     #super class processing and prediction
-    X,Y=import_Data()
+    X,Y,Y_=import_Data()
     y_pred, X_train, X_test, y_train, y_test=super_Predict(X,Y)
+
+    y_pred1, X_train1, X_test1, y_train1, y_test1 = super_Predict(X, Y_)
 
 
     # sub class prediction

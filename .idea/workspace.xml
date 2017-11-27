@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33ba7693-d1e4-4799-b586-6ecb3e9922b9" name="Default" comment="" />
+    <list default="true" id="33ba7693-d1e4-4799-b586-6ecb3e9922b9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model.py" afterPath="$PROJECT_DIR$/Model.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Model.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="89" column="13" lean-forward="true" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
+            <state relative-caret-position="855">
+              <caret line="57" column="25" lean-forward="false" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
@@ -26,8 +29,20 @@
       <file leaf-file-name="PMI.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PMI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Feature_Rank_Logist.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Feature_Rank_Logist.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
@@ -53,8 +68,9 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
         <option value="$PROJECT_DIR$/cleanData.py" />
         <option value="$PROJECT_DIR$/DocsToMatrix.py" />
-        <option value="$PROJECT_DIR$/Model.py" />
         <option value="$PROJECT_DIR$/PMI.py" />
+        <option value="$PROJECT_DIR$/Feature_Rank_Logist.py" />
+        <option value="$PROJECT_DIR$/Model.py" />
       </list>
     </option>
   </component>
@@ -117,7 +133,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.PMI">
+  <component name="RunManager" selected="Python.Model">
     <configuration name="DocsToMatrix" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -131,6 +147,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Sub-Classification" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DocsToMatrix.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="Feature_Rank_Logist" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Sub-Classification" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Feature_Rank_Logist.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,37 +219,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="super_pred" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Sub-Classification" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/super_pred.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.super_pred" />
-      <item index="1" class="java.lang.String" itemvalue="Python.cleanData" />
-      <item index="2" class="java.lang.String" itemvalue="Python.DocsToMatrix" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Model" />
-      <item index="4" class="java.lang.String" itemvalue="Python.PMI" />
+      <item index="0" class="java.lang.String" itemvalue="Python.cleanData" />
+      <item index="1" class="java.lang.String" itemvalue="Python.DocsToMatrix" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Model" />
+      <item index="3" class="java.lang.String" itemvalue="Python.PMI" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Feature_Rank_Logist" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.PMI" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Model" />
-        <item index="2" class="java.lang.String" itemvalue="Python.DocsToMatrix" />
-        <item index="3" class="java.lang.String" itemvalue="Python.cleanData" />
-        <item index="4" class="java.lang.String" itemvalue="Python.super_pred" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Model" />
+        <item index="1" class="java.lang.String" itemvalue="Python.PMI" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Feature_Rank_Logist" />
+        <item index="3" class="java.lang.String" itemvalue="Python.DocsToMatrix" />
+        <item index="4" class="java.lang.String" itemvalue="Python.cleanData" />
       </list>
     </recent_temporary>
   </component>
@@ -438,16 +454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PMI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding>
-            <element signature="e#1#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/super_pred.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -464,10 +470,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_6.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PMI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="89" column="13" lean-forward="true" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
+        <state relative-caret-position="855">
+          <caret line="57" column="25" lean-forward="false" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Feature_Rank_Logist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
           <folding>
             <element signature="e#1#20#0" expanded="true" />
           </folding>
