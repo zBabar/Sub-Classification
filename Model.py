@@ -53,10 +53,10 @@ def apply_Model(X_train,y_train):
 
     #clf = svm.SVC(kernel='linear', C=1).fit(X_train, y_train)
 
-    clf=linear_model.LogisticRegression(C=1e5).fit(X_train, y_train)
+    #clf=linear_model.LogisticRegression(C=1e5).fit(X_train, y_train)
 
-    print(clf.coef_.shape)
-    #clf = MultinomialNB().fit(X_train, y_train)
+    #print(clf.coef_.shape)
+    clf = MultinomialNB().fit(X_train, y_train)
 
 
 

@@ -15,6 +15,7 @@ def apply_Model(X,Y):
     feature_weight=pd.DataFrame(clf.coef_,columns=X.columns,index=clf.classes_)
     print(feature_weight.idxmax(axis=0))
 
+
 def import_Data():
     Data = pd.read_csv('Disease_Data1.csv')
     # print(Data.shape)
@@ -30,6 +31,6 @@ def import_Data():
 
 X,Y,Y_=import_Data()
 
-model = apply_Model(X.iloc[:,0:1139],Y)
+model = apply_Model(X.iloc[:,0:1139],Y_)
 
 
