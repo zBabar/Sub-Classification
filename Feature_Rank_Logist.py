@@ -13,7 +13,11 @@ def apply_Model(X,Y):
 
     clf=linear_model.LogisticRegression(C=1e5).fit(X, Y)
     feature_weight=pd.DataFrame(clf.coef_,columns=X.columns,index=clf.classes_)
-    print(feature_weight.idxmax(axis=0))
+    feature_word_relv=feature_weight.idxmax(axis=0)
+    feature_word_relvSort=feature_word_relv.sort_values(ascending=True)
+    print(type(feature_word_relvSort))
+    feature_word_relvSort.to_csv("feature_wordRelv.csv")
+    #print(feature_word_relv['hormone'])
 
 
 def import_Data():
