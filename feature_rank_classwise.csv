@@ -1,0 +1,15 @@
+,Clinical,Epidemiology,Management,Outcomes,Pathophysiology,Review
+score,"[ 3.4160615   3.38190571  3.32073855  3.31545757  3.22371075  3.21203889
+  3.18093339  3.0292512   2.99163157  2.98724161]","[ 4.37582124  4.20888828  3.44194034  3.25623     3.22204948  3.19442565
+  3.189037    3.11886424  3.09514132  3.08854748]","[ 4.08699584  3.69766994  3.48599175  3.46275908  3.33639454  3.09983705
+  3.06191125  2.93816857  2.90035934  2.86936629]","[ 5.2237482   4.36716658  4.17625613  4.16150192  4.01569697  3.75558176
+  3.47052831  3.33941847  3.28052054  3.27535952]","[ 2.23474764  2.08959488  2.00674788  1.88974086  1.83951288  1.78725942
+  1.78298722  1.7407788   1.72282311  1.60287751]","[ 5.12419077  4.17353145  2.74824652  2.53963875  2.4179345   2.3364737
+  2.31964682  2.26434375  2.24557407  2.23238647]"
+words,"['morbidity' 'recurrent' 'followup' 'lipoprotein' 'phenotype'
+ 'percutaneous' 'reflect' 'size' 'reinfarction' 'diagnostic']","['attention' 'socioeconomic' 'chinese' 'resident' 'duration'
+ 'intracerebral' 'comorbidities' 'author' 'stenosis' 'lack']","['congestive' 'drug' 'respect' 'complete' 'individual' 'investigation'
+ 'killip' 'consistently' 'classification' 'ageadjusted']","['fatality' 'subsequent' 'participate' 'achieve' 'pulmonary' 'explain'
+ 'diuretic' 'retrospective' 'generally' 'domain']","['genotype' 'great' 'damage' 'allele' 'mutation' 'observe' 'mouse' 'alter'
+ 'oral' 'concentration']","['review' 'many' 'search' 'metaanalysis' 'effective' 'bias' 'mechanism'
+ 'sexspecific' 'understand' 'article']"

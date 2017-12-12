@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ba7693-d1e4-4799-b586-6ecb3e9922b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Feature_Rank_Logist.py" afterPath="$PROJECT_DIR$/Feature_Rank_Logist.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Feature_Selection.py" afterPath="$PROJECT_DIR$/Feature_Selection.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Feature_Selection_Ida.py" afterPath="$PROJECT_DIR$/Feature_Selection_Ida.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feature_wordRelv.csv" afterPath="$PROJECT_DIR$/feature_wordRelv.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Feature_Rank_Classwise.py" afterPath="$PROJECT_DIR$/Feature_Rank_Classwise.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,22 +60,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scratch_10.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_10.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Feature_Rank_Classwise.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Feature_Rank_Classwise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="533">
+              <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+              <folding>
+                <element signature="e#1#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,8 +75,8 @@
       <file leaf-file-name="Feature_Selection.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Feature_Selection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+            <state relative-caret-position="126">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -117,6 +107,7 @@
         <option value="$PROJECT_DIR$/PMI.py" />
         <option value="$PROJECT_DIR$/Feature_Selection.py" />
         <option value="$PROJECT_DIR$/Feature_Rank_Logist.py" />
+        <option value="$PROJECT_DIR$/Feature_Rank_Classwise.py" />
       </list>
     </option>
   </component>
@@ -179,7 +170,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Feature_Rank_Logist">
+  <component name="RunManager" selected="Python.Feature_Rank_Classwise">
+    <configuration name="Feature_Rank_Classwise" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Sub-Classification" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Feature_Rank_Classwise.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="Feature_Rank_Logist" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -231,23 +239,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="Model" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Sub-Classification" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Model.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="PMI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -266,19 +257,19 @@
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Model" />
-      <item index="1" class="java.lang.String" itemvalue="Python.PMI" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Feature_Rank_Logist" />
-      <item index="3" class="java.lang.String" itemvalue="Python.Feature_Selection" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Feature_Selection_Ida" />
+      <item index="0" class="java.lang.String" itemvalue="Python.PMI" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Feature_Rank_Logist" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Feature_Selection" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Feature_Selection_Ida" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Feature_Rank_Classwise" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Feature_Rank_Logist" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Feature_Selection" />
-        <item index="2" class="java.lang.String" itemvalue="Python.PMI" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Feature_Selection_Ida" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Model" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Feature_Rank_Classwise" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Feature_Rank_Logist" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Feature_Selection" />
+        <item index="3" class="java.lang.String" itemvalue="Python.PMI" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Feature_Selection_Ida" />
       </list>
     </recent_temporary>
   </component>
@@ -546,16 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Feature_Selection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="84" column="37" lean-forward="true" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
@@ -582,6 +563,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_10.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Feature_Rank_Logist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -592,19 +581,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_10.py">
+    <entry file="file://$PROJECT_DIR$/Feature_Selection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="126">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Feature_Rank_Classwise.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="533">
+          <caret line="37" column="18" lean-forward="true" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
