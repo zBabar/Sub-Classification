@@ -1,15 +1,11 @@
-,Clinical,Epidemiology,Management,Outcomes,Pathophysiology,Review
-score,"[ 3.4160615   3.38190571  3.32073855  3.31545757  3.22371075  3.21203889
-  3.18093339  3.0292512   2.99163157  2.98724161]","[ 4.37582124  4.20888828  3.44194034  3.25623     3.22204948  3.19442565
-  3.189037    3.11886424  3.09514132  3.08854748]","[ 4.08699584  3.69766994  3.48599175  3.46275908  3.33639454  3.09983705
-  3.06191125  2.93816857  2.90035934  2.86936629]","[ 5.2237482   4.36716658  4.17625613  4.16150192  4.01569697  3.75558176
-  3.47052831  3.33941847  3.28052054  3.27535952]","[ 2.23474764  2.08959488  2.00674788  1.88974086  1.83951288  1.78725942
-  1.78298722  1.7407788   1.72282311  1.60287751]","[ 5.12419077  4.17353145  2.74824652  2.53963875  2.4179345   2.3364737
-  2.31964682  2.26434375  2.24557407  2.23238647]"
-words,"['morbidity' 'recurrent' 'followup' 'lipoprotein' 'phenotype'
- 'percutaneous' 'reflect' 'size' 'reinfarction' 'diagnostic']","['attention' 'socioeconomic' 'chinese' 'resident' 'duration'
- 'intracerebral' 'comorbidities' 'author' 'stenosis' 'lack']","['congestive' 'drug' 'respect' 'complete' 'individual' 'investigation'
- 'killip' 'consistently' 'classification' 'ageadjusted']","['fatality' 'subsequent' 'participate' 'achieve' 'pulmonary' 'explain'
- 'diuretic' 'retrospective' 'generally' 'domain']","['genotype' 'great' 'damage' 'allele' 'mutation' 'observe' 'mouse' 'alter'
- 'oral' 'concentration']","['review' 'many' 'search' 'metaanalysis' 'effective' 'bias' 'mechanism'
- 'sexspecific' 'understand' 'article']"
+,Clinical_score,Clinical_words,Epidemiology_score,Epidemiology_words,Management_score,Management_words,Outcomes_score,Outcomes_words,Pathophysiology_score,Pathophysiology_words,Review_score,Review_words
+0,3.41606150133853,morbidity,4.375821237594818,attention,4.086995842521487,congestive,5.223748197919778,fatality,2.2347476445967507,genotype,5.124190772564466,review
+1,3.381905713487111,recurrent,4.208888282316198,socioeconomic,3.6976699390139323,drug,4.367166584442762,subsequent,2.0895948819708288,great,4.173531453157876,many
+2,3.320738551229726,followup,3.4419403425381554,chinese,3.4859917454504954,respect,4.176256134974779,participate,2.0067478827288348,damage,2.74824652000473,search
+3,3.3154575712356045,lipoprotein,3.256229999989735,resident,3.462759077103876,complete,4.161501920521597,achieve,1.8897408568059832,allele,2.5396387458885483,metaanalysis
+4,3.223710753571426,phenotype,3.222049475745232,duration,3.336394536703205,individual,4.015696969870345,pulmonary,1.8395128772220997,mutation,2.417934504729091,effective
+5,3.212038892542881,percutaneous,3.1944256508325317,intracerebral,3.099837047082086,investigation,3.7555817649998815,explain,1.7872594234747778,observe,2.3364737045459476,bias
+6,3.180933391647925,reflect,3.189036997017646,comorbidities,3.0619112505985018,killip,3.4705283073269557,diuretic,1.7829872217187819,mouse,2.319646819492527,mechanism
+7,3.029251199581875,size,3.118864236284579,author,2.9381685660438936,consistently,3.3394184657713537,retrospective,1.7407787954708107,alter,2.2643437481381516,sexspecific
+8,2.991631574457119,reinfarction,3.095141321064857,stenosis,2.900359337860518,classification,3.280520540299199,generally,1.7228231059540653,oral,2.2455740669817827,understand
+9,2.9872416133556605,diagnostic,3.0885474847419454,lack,2.8693662918706306,ageadjusted,3.2753595212979607,domain,1.602877507984663,concentration,2.232386471801153,article

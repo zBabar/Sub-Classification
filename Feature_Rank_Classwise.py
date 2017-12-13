@@ -26,9 +26,9 @@ def apply_Model(X,Y):
         #word_score['score']=fwr[fwr[0] == i]['score']
         #feature_word[i]=word_score
         #feature_word[i]=(fwr[fwr[0] == i]['score'].sort_values(ascending=False))[:10]
-        word_score['words']=np.array((fwr[fwr[0] == i]['score'].sort_values(ascending=False))[:10].index)
-        word_score['score'] = np.array((fwr[fwr[0] == i]['score'].sort_values(ascending=False))[:10].values)
-        feature_word[i]=word_score
+        feature_word[i+'_'+'words']=np.array((fwr[fwr[0] == i]['score'].sort_values(ascending=False))[:10].index)
+        feature_word[i+'_'+'score'] = np.array((fwr[fwr[0] == i]['score'].sort_values(ascending=False))[:10].values)
+        #feature_word[i]=word_score
     feature_word=pd.DataFrame(feature_word)
     feature_word.to_csv('feature_rank_classwise.csv')
     #print(feature_word_relv['hormone'])
