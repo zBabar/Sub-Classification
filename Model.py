@@ -15,16 +15,16 @@ from sklearn.naive_bayes import MultinomialNB
 ## Data import and seperate
 
 def import_Data():
-    Data=pd.read_csv('Disease_Data1.csv')
-    #print(Data.shape)
+    Data=pd.read_csv('Disease_Data_2Gram.csv')
+    numOfFeatures=Data.shape[1]-2
 
-    X=Data.iloc[:,0:1140]
+    X=Data.iloc[:,0:Data.shape[1]-1]
 
 
     Y=Data['Class']
     Y_=Data['Subject']
 
-    return X,Y,Y_
+    return X,Y,Y_,numOfFeatures
 
 ## spliting into test and training data
 
@@ -51,22 +51,22 @@ def split_Data(X,Y):
 def apply_Model(X_train,y_train):
     #X_train=X_train.iloc[:,0:1139]
 
-    #clf = svm.SVC(kernel='linear', C=1).fit(X_train, y_train)
+    #clf = svm.SVC(kernel='rbf', C=1).fit(X_train, y_train)
 
-    #clf=linear_model.LogisticRegression(C=1e5).fit(X_train, y_train)
+    clf=linear_model.LogisticRegression(C=1e5).fit(X_train, y_train)
 
     #print(clf.coef_.shape)
-    clf = MultinomialNB().fit(X_train, y_train)
+    #clf = MultinomialNB().fit(X_train, y_train)
 
 
 
     return clf
 
-def apply_sub_Model(sub_class,Y): # training models for data per each class and storing in a dictionary
+def apply_sub_Model(sub_class,Y,numOfFeatures): # training models for data per each class and storing in a dictionary
     sub_Models={}
     for cls in list(set(Y)):
         X=sub_class[cls]
-        X_train=X.iloc[:,0:1139]
+        X_train=X.iloc[:,0:numOfFeatures]
         y_train=X['Subject']
         model=apply_Model(X_train,y_train)
         sub_Models[cls]=model
@@ -81,22 +81,24 @@ def model_Predict(clf,X_test):
 
 def super_Predict(X,Y): # predicting super class for given test dataset
     X_train, X_test, y_train, y_test = split_Data(X, Y)
+    numOfFeatures=X_train.shape[1]-1
 
-    model = apply_Model(X_train.iloc[:,0:1139], y_train)
-    y_pred = model_Predict(model, X_test.iloc[:,0:1139])
+    model = apply_Model(X_train.iloc[:,0:numOfFeatures], y_train)
+    y_pred = model_Predict(model, X_test.iloc[:,0:numOfFeatures])
     acc = accuracy_score(y_test, y_pred)
     print("Super Class Prediction Accuracy:", acc)
     return y_pred,X_train,X_test,y_train,y_test
 
-def sub_predict(y_pred, X_train, X_test, y_train, y_test,Y): # predicting sub class (Subject) for given test data set
+def sub_predict(y_pred, X_train, X_test, y_train,Y): # predicting sub class (Subject) for given test data set
+    numOfFeatures = X_train.shape[1] - 1
     y_sub_pred=np.array([])
     sub_class = split_class_Data(X_train,y_train)
-    sub_Models=apply_sub_Model(sub_class,y_train)
+    sub_Models=apply_sub_Model(sub_class,y_train,numOfFeatures)
 
     i=0
     for index,case in X_test.iterrows():
         superCls=y_pred[i]
-        case=pd.DataFrame(case).iloc[0:1139]
+        case = pd.DataFrame(case).iloc[0:numOfFeatures]
         sub_label=model_Predict(sub_Models[superCls],case.transpose())
         y_sub_pred=np.append(y_sub_pred,sub_label)
         i=i+1
@@ -107,14 +109,16 @@ def sub_predict(y_pred, X_train, X_test, y_train, y_test,Y): # predicting sub cl
 
 def main():
     #super class processing and prediction
-    X,Y,Y_=import_Data()
+    X,Y,Y_,numOfFeatures=import_Data()
+
+    #print(X)
     y_pred, X_train, X_test, y_train, y_test=super_Predict(X,Y)
 
     y_pred1, X_train1, X_test1, y_train1, y_test1 = super_Predict(X, Y_)
 
 
     # sub class prediction
-    sub_predict(y_pred, X_train, X_test, y_train, y_test,Y)
+    sub_predict(y_pred, X_train, X_test, y_train,Y)
 
 #clf.score(X_test, y_test)
 

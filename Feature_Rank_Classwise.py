@@ -12,7 +12,8 @@ def apply_Model(X,Y):
     feature_word={}
 
     clf=linear_model.LogisticRegression(C=1e5).fit(X, Y)
-    feature_weight=pd.DataFrame(clf.coef_,columns=X.columns,index=clf.classes_)
+    feature_weight=pd.DataFrame(np.round_(clf.coef_,2),columns=X.columns,index=clf.classes_)
+    #print(np.max(feature_weight,axis=0))
     feature_word_relv=feature_weight.idxmax(axis=0)
     #print(feature_weight)
     #feature_word_relvSort=feature_word_relv.sort_values(ascending=True)
@@ -30,16 +31,16 @@ def apply_Model(X,Y):
         feature_word[i+'_'+'score'] = np.array((fwr[fwr[0] == i]['score'].sort_values(ascending=False))[:10].values)
         #feature_word[i]=word_score
     feature_word=pd.DataFrame(feature_word)
-    feature_word.to_csv('feature_rank_classwise.csv')
+    feature_word.to_csv('feature_rank_classwise_2g.csv')
     #print(feature_word_relv['hormone'])
 
 
 
 def import_Data():
-    Data = pd.read_csv('Disease_Data1.csv')
+    Data = pd.read_csv('Disease_Data_2Gram_form.csv')
     # print(Data.shape)
 
-    X = Data.iloc[:, 0:1140]
+    X = Data.iloc[:, 0:Data.shape[1]-2]
 
     Y = Data['Class']
     Y_ = Data['Subject']
@@ -50,6 +51,8 @@ def import_Data():
 
 X,Y,Y_=import_Data()
 
-model = apply_Model(X.iloc[:,0:1139],Y_)
+
+#print(type(Y_))
+model = apply_Model(X,Y_)
 
 

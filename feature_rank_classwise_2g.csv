@@ -1,0 +1,11 @@
+,Clinical_score,Clinical_words,Epidemiology_score,Epidemiology_words,Management_score,Management_words,Outcomes_score,Outcomes_words,Pathophysiology_score,Pathophysiology_words,Review_score,Review_words
+0,2.02,morbidity,2.33,socioeconomic,2.34,drug,2.41,fatality,1.85,mouse,3.32,review
+1,2.0,value,1.71,chinese,1.88,placebo,2.16,pulmonary,1.65,genotype,2.26,many
+2,1.66,assay,1.67,cluster,1.86,individual,1.98,explain,1.43,allele,1.44,search
+3,1.61,food,1.65,marital,1.82,dose,1.89,barthel,1.42,mutation,1.43,article
+4,1.6,old men,1.63,incidence,1.81,perform,1.72,achieve,1.38,great,1.4,mechanism
+5,1.55,size,1.6,comorbidities,1.73,complete,1.72,mortality rate,1.34,damage,1.37,metaanalysis
+6,1.54,measurement,1.52,alcohol,1.72,see,1.71,anxiety,1.32,male,1.35,effective
+7,1.5,fatigue,1.52,scale score,1.7,iibiiia,1.71,woman stroke,1.18,gene,1.24,postoperative
+8,1.48,lipoprotein,1.51,rate woman,1.67,woman less,1.68,qol,1.18,pressure,1.2,understand
+9,1.47,recurrent,1.5,resident,1.66,service,1.67,survival,1.17,relation,1.13,literature

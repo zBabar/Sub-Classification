@@ -6,25 +6,25 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 from sklearn.feature_selection import mutual_info_classif
 from sklearn.tree import DecisionTreeClassifier
-clf = DecisionTreeClassifier(random_state=0)
+#clf = DecisionTreeClassifier(random_state=0)
 
 
 def apply_Model(X, Y):
 
     # Chi2 based feature selection
-    CH=SelectKBest(chi2, k=50).fit(X, Y)
+    CH=SelectKBest(chi2, k=15).fit(X, Y)
     Feature_CH = X.iloc[:, CH.get_support(True)].columns
     #h=heapq.nlargest(10, range(len(Sub.scores_)), Sub.scores_.take)
 
     #Mutual Information based feature selection
-    MI = SelectKBest(mutual_info_classif, k=50).fit(X, Y)
+    MI = SelectKBest(mutual_info_classif, k=15).fit(X, Y)
     Feature_MI= X.iloc[:, MI.get_support(True)].columns
 
     #Information Gain based feature selection
 
     DT = DecisionTreeClassifier(criterion='entropy',random_state=0)
     DT=DT.fit(X,Y)
-    h=heapq.nlargest(50, range(len(DT.feature_importances_)), DT.feature_importances_.take)
+    h=heapq.nlargest(15, range(len(DT.feature_importances_)), DT.feature_importances_.take)
     Feature_IG = X.columns[h]
     #print(h,MI.get_support(True),CH.get_support(True))
 
@@ -33,7 +33,7 @@ def apply_Model(X, Y):
     h=LR.coef_
     h = np.mean(h, axis=0)
     print(h.shape)
-    h = heapq.nlargest(50, range(len(h)), h.take)
+    h = heapq.nlargest(15, range(len(h)), h.take)
     Feature_LR = X.columns[h]
 
 
@@ -45,7 +45,7 @@ def apply_Model(X, Y):
     return Feature_CH,Feature_MI,Feature_IG,Feature_LR
 
 def import_Data():
-    Data = pd.read_csv('Disease_Data1.csv')
+    Data = pd.read_csv('Disease_Data_2Gram_form.csv')
     NumOfFeatures = Data.shape[1]-2
 
     X = Data.iloc[:, 0:NumOfFeatures]
@@ -86,7 +86,7 @@ SelectWords=pd.DataFrame(SelectWords)
 
 print(SelectWords)
 
-SelectWords.to_csv('Selected_Features.csv')
+#SelectWords.to_csv('Selected_Features_2g.csv')
 
 #result=pd.concat([MI_df,Ch2_df],axis=1)
 

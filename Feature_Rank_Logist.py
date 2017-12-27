@@ -24,7 +24,7 @@ def import_Data():
     Data = pd.read_csv('Disease_Data1.csv')
     # print(Data.shape)
 
-    X = Data.iloc[:, 0:1140]
+    X = Data.iloc[:, 0:Data.shape[1] - 2]
 
     Y = Data['Class']
     Y_ = Data['Subject']
@@ -35,6 +35,6 @@ def import_Data():
 
 X,Y,Y_=import_Data()
 
-model = apply_Model(X.iloc[:,0:1139],Y_)
+model = apply_Model(X,Y_)
 
 
