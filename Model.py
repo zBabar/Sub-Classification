@@ -15,7 +15,7 @@ from sklearn.naive_bayes import MultinomialNB
 ## Data import and seperate
 
 def import_Data():
-    Data=pd.read_csv('Disease_Data_2Gram.csv')
+    Data=pd.read_csv('Disease_Data_BiGram.csv')
     numOfFeatures=Data.shape[1]-2
 
     X=Data.iloc[:,0:Data.shape[1]-1]
@@ -51,12 +51,12 @@ def split_Data(X,Y):
 def apply_Model(X_train,y_train):
     #X_train=X_train.iloc[:,0:1139]
 
-    #clf = svm.SVC(kernel='rbf', C=1).fit(X_train, y_train)
+    #clf = svm.SVC(kernel='linear', C=1).fit(X_train, y_train)
 
-    clf=linear_model.LogisticRegression(C=1e5).fit(X_train, y_train)
+    #clf=linear_model.LogisticRegression(C=1e5).fit(X_train, y_train)
 
     #print(clf.coef_.shape)
-    #clf = MultinomialNB().fit(X_train, y_train)
+    clf = MultinomialNB().fit(X_train, y_train)
 
 
 

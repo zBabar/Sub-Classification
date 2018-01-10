@@ -31,13 +31,13 @@ def apply_Model(X,Y):
         feature_word[i+'_'+'score'] = np.array((fwr[fwr[0] == i]['score'].sort_values(ascending=False))[:10].values)
         #feature_word[i]=word_score
     feature_word=pd.DataFrame(feature_word)
-    feature_word.to_csv('feature_rank_classwise_2g.csv')
+    feature_word.to_csv('feature_rank_classwise_BiG.csv')
     #print(feature_word_relv['hormone'])
 
 
 
 def import_Data():
-    Data = pd.read_csv('Disease_Data_2Gram_form.csv')
+    Data = pd.read_csv('Disease_Data_BiGram.csv')
     # print(Data.shape)
 
     X = Data.iloc[:, 0:Data.shape[1]-2]

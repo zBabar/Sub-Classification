@@ -25,7 +25,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 def DocsToFMatrix(docs):
     # initialize the  vectorizer
-    vectorizer = CountVectorizer(ngram_range=[1,2],min_df=10)
+    vectorizer = CountVectorizer(ngram_range=[2,2],min_df=10)
     x1 = vectorizer.fit_transform(docs)
     # create dataFrame
     df = pd.DataFrame(x1.toarray().transpose(), index=vectorizer.get_feature_names())
@@ -42,7 +42,7 @@ def main(argv):
     Tm['Class'] = clean_Disease['Class']
 
     print(Tm.shape)
-    Tm.to_csv('Disease_Data_2Gram.csv', index=False)
+    Tm.to_csv('Disease_Data_BiGram.csv', index=False)
 
 
 if __name__ == '__main__':

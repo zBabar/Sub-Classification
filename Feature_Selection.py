@@ -45,7 +45,7 @@ def apply_Model(X, Y):
     return Feature_CH,Feature_MI,Feature_IG,Feature_LR
 
 def import_Data():
-    Data = pd.read_csv('Disease_Data_2Gram_form.csv')
+    Data = pd.read_csv('Disease_Data_BiGram.csv')
     NumOfFeatures = Data.shape[1]-2
 
     X = Data.iloc[:, 0:NumOfFeatures]
@@ -84,9 +84,9 @@ SelectWords['LR']=LR
 
 SelectWords=pd.DataFrame(SelectWords)
 
-print(SelectWords)
+#print(SelectWords)
 
-#SelectWords.to_csv('Selected_Features_2g.csv')
+SelectWords.to_csv('Selected_Features_BiG.csv')
 
 #result=pd.concat([MI_df,Ch2_df],axis=1)
 
